@@ -7,7 +7,8 @@
 #                                                                       #
 #   Criador: Bruno Terres (brunoeterres@gmail.com)                      #
 #   Data de Criação: 03/06/2019                                         #
-#                                                                       # #   Ex de Uso: ./HelloScript.sh                                         #
+#                                                                       #    
+#   Ex de Uso: ./HelloScript.sh                                         #
 #                                                                       #
 #########################################################################
 
@@ -25,8 +26,7 @@ HORA=$(date +%H)
 HORA12=$(date +%l)
 MIN=$(date +%M)
 
-
-#Conversão 24h para 12h 
+#Loop DIATARDENOITE
 
 if [ $HORA -lt 12 ]
 then 
