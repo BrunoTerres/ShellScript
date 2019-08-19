@@ -4,7 +4,7 @@
 #   ContaArquivo.sh   -   conta os arquivos .mp3 .mp4 e .jpg de todos
 # os usuários da maquina 
 # 
-#   Criador: Bruno Eduardo Terres	(brunoeterres@gmail.com)
+#   Desenvolvedor: Bruno Eduardo Terres	(brunoeterres@gmail.com)
 #   Data da criação: 09/07/2019
 # 
 #####################################
