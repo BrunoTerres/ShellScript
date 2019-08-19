@@ -12,6 +12,8 @@
 #                                                                          #
 ############################################################################
 
+
+#Variaveis com informações da maquina
 NOMEMAQUINA=$(uname -n) 
 DATA=$(date) 
 TEMPOLIGADA=$(uptime -s)
@@ -21,6 +23,7 @@ CPUCORES=$(cat /proc/cpuinfo|grep "cpu cores"| uniq| cut -c12-25)
 MEMINFOMB=$(awk '$3=="kB"{$2=$2/1024;$3="MB"} 1' /proc/meminfo |grep "MemTotal"| cut -c10-20)
 PARTICOES=$(df -h| head -n6) 
 
+#Saí́das
 clear 
 echo "================================================================="
 echo "Relatório da Maquina: $NOMEMAQUINA " 
