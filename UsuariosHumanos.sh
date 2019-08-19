@@ -4,7 +4,7 @@
 #
 #    UsuariosHumanos.sh  -  Script com a finalidade de mostrar os Usuários# Humano cadastrados na maquina                                         
 #    
-#    Nome do Criador: Bruno Terres    (brunoeterres@gmail.com)
+#    Desenvolvedor: Bruno Terres    (brunoeterres@gmail.com)
 #    Data de Criação: 04/07/2019           
 #   
 #    ./UsuariosHumanos.sh  -  devolve os usuários humanos do sistema junt 
@@ -20,7 +20,7 @@ MAX_UID=$(grep "^UID_MAX" /etc/login.defs | tr -s "\t" | cut -f2)
 OLDIFS=$IFS 
 IFS=$'\n'
 
-#Criando cabeçalho 
+#cabeçalho 
 echo -e "USUARIO\t\tUID\t\tDIR HOME\t\tNOME OU DESCRIÇÃO" 
 
 #Loop FOR para pegar informações dos usuarios 
