@@ -11,7 +11,7 @@
 #   Data de Criação: 29/05/2019                                         #
 #                                                                       #
 #   ExUso: ./ScriptRelatorioUsuario.sh                                  #
-#                                                                       # #########################################################################
+#########################################################################
 
 #Solicitação da entarda do nome do usuario
 read -p "Digite o nome de um Usuaŕio: " VAR1
