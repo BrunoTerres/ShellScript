@@ -16,7 +16,7 @@
 
 DIRDEST=$HOME/Backup
 
-#Chaca se existe o dir backup na home
+#Checa se existe o dir backup na home
 if [ ! -d ~/Backup ] 
 then 
 	echo "Criando Diretório $DIRDEST..."
