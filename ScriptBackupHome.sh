@@ -11,19 +11,21 @@
 # (/home/<usuario>/Backup) e faz o backup compactado                  #
 # de todo o Diretório /home no formato backup_home_AAAAMMDDHHMM.tgz   #
 #                                                                     #
-#  Exemplo de uso:  ./ScriptBackupHome.sh                             #
+#  Exemplo de uso:  ./ScriptBackupHome.sh - como root funciona melhor #
 #######################################################################
 
 DIRDEST=$HOME/Backup
 
+#Chaca se existe o dir backup na home
 if [ ! -d ~/Backup ] 
 then 
 	echo "Criando Diretório $DIRDEST..."
 	mkdir -p $DIRDEST   	
 fi
 
+#Checa se o backup foi feito nos ultimos 7 dias
 DAYS7=$(find $DIRDEST -ctime -7 -name backup_home\*tgz)
-
+#Se feito, ́pergunta se deseja fazer outro
 if [ "$DAYS7" ] #testa se a variável é nula. Atenção aspas duplas para caracteres especiais 
 then 
 	echo "Já foi gerado um backup do diretório $HOME nos últimos sete dias. " 
@@ -42,7 +44,7 @@ then
 		exit 2 
 	fi 
 fi
-
+#Fazendo o Backup
 echo "Criando Backup..." 
 ARQ="backup_home_$(date +%Y%m%d%H%M).tgz"
 tar zcvpf $DIRDEST/$ARQ --exclude="$DIRDEST" "$HOME"/* > /dev/null
