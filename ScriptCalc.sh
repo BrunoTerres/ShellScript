@@ -2,7 +2,7 @@
 
 ###############################################
 #                                                                        
-#  ScriptCalc.sh  -  Recebe duas entradas numéricas como Parametro mostra
+#  ScriptCalc.sh  -  Recebe duas entradas numéricas como Parametros, mostra
 # as opções de operadores e faz o calculo.                              
 #                                                                        
 #  Criador: Bruno Terres (brunoeterres@gmail.com)                       
@@ -29,7 +29,7 @@ then
 fi
 
 
-#Escolhendo o operador 
+#Menu operador 
 
  
 echo "Operandos escolhidos $N1 e $N2. "
@@ -41,8 +41,7 @@ echo "4) Divisão"
 echo "S) Sair"
 read -p "Operador: " OP
 
-#Calculo 
-
+#Calculo e saidas
 case $OP in 
 	
 	1)	
