@@ -8,8 +8,18 @@ DATA=$1
 separando () {
 	echo ${DATA:3:4} 
 }
-separando $DATA
 
+
+
+tirabarra () {
+	if [ "$(echo "$DATA" | grep -E '/')" ]
+	then 
+		DATASEMBARRA=$(echo $DATA | tr -d '/')
+		echo $DATA
+		echo $DATASEMBARRA
+	fi 	
+}
+tirabarra $DATA
 
 formato () {
 	if [ "$(echo "$DATA" | grep -E '/')" ] 
@@ -53,4 +63,3 @@ checabarra () {
 	fi
 }
 
-formato $DATA
