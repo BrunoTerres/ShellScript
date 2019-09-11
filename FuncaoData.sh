@@ -6,41 +6,46 @@ DATA=$1
 
 
 separando () {
-	echo ${DATA:3:4} 
+	tirabarra $DATA
+	echo ${DATA:0:2}
+        echo ${DATA:2:2}	
 }
-
 
 
 tirabarra () {
 	if [ "$(echo "$DATA" | grep -E '/')" ]
 	then 
-		DATASEMBARRA=$(echo $DATA | tr -d '/')
-		echo $DATA
-		echo $DATASEMBARRA
+		local DATASEMBARRA=$(echo $DATA | tr -d '/')
+		DATA=$DATASEMBARRA
 	fi 	
 }
-
 
 formato () {
 	if [ "$(echo "$DATA" | grep -E '/')" ] 
 	then 
 		tirabarra $DATA
-		if [ "${DATASEMBARRA:0:2}" -gt 12 -a "${DATASEMBARRA:2:2}" -lt 31 ]
+		if [ "${DATA:0:2}" -gt 12 -a "${DATA:2:2}" -gt 12 ]
 		then
+			echo "Formato invalido"
+			echo "return 3"
+			return 3
+		elif [ "${DATA:0:2}" -le 12 -a "${DATA:2:2}" -le 12 ]
+		then 
+			echo "Não é possível determinar!" 
+			return 2
+		elif [ "${DATA:0:2}" -lt 31 -a "${DATA:2:2}" -lt 12 ]
+		then 	
 			echo "com barra"
 			echo "formato BR return 0"
 			return 0
-		#BAD
-		elif [ "${DATASEMBARRA:0:2}" -lt 31 -a "${DATASEMBARRA:2:2}" -gt 12 ]
-		then 	
-			echo "com barra"
-			echo "formato USA return 1"
-			return 1
-		elif [ "${DATASEMBARRA:0:2}" -gt 31 -o "${DATASEMBARRA:2:2}" -gt 31 ]
+		elif [ "${DATA:0:2}" -lt 12 -a "${DATA:2:2}" -lt 31 ]
 		then 
-			echo "Formato inválido!" 
+			echo "com barra"
+		        echo "Formato USA return 1"
+			return 1	
 		else 
 			echo "Não é possível determinar!"
+			return 2
 		fi
 	else 
 		if [ "${DATA:0:2}" -gt 12 -a "${DATA:2:2}" -lt 31 ] 
@@ -63,4 +68,4 @@ formato () {
  
 } 
 formato $DATA
-
+separando $DATA
