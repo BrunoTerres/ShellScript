@@ -30,13 +30,17 @@ formato () {
 			echo "com barra"
 			echo "formato BR return 0"
 			return 0
+		#BAD
 		elif [ "${DATASEMBARRA:0:2}" -lt 31 -a "${DATASEMBARRA:2:2}" -gt 12 ]
 		then 	
 			echo "com barra"
 			echo "formato USA return 1"
 			return 1
+		elif [ "${DATASEMBARRA:0:2}" -gt 31 -o "${DATASEMBARRA:2:2}" -gt 31 ]
+		then 
+			echo "Formato inválido!" 
 		else 
-			echo "nada"
+			echo "Não é possível determinar!"
 		fi
 	else 
 		if [ "${DATA:0:2}" -gt 12 -a "${DATA:2:2}" -lt 31 ] 
@@ -49,21 +53,14 @@ formato () {
 			echo "sem barra" 
 			echo "formato USA return 1"
 			return 1 
+		elif [ "${DATA:0:2}" -gt 31 -o "${DATA:2:2}" -gt 31 ]
+		then 
+			echo "Formato inválido!"
 		else 
-			echo "nada2"
+			echo "Não é possível determinar!"
 		fi 
 	fi 	
  
 } 
 formato $DATA
-
-
-checabarra () {
-	if [ $(echo "$DATA" | egrep '/') ]
-	then 	
-		echo oi			
-	else 
-		echo "Nao tem barra" 
-	fi
-}
 
