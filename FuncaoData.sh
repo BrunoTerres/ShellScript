@@ -5,7 +5,7 @@ DATA=$1
 
 
 
-separando () {
+rando () {
 	tirabarra $DATA
 	echo ${DATA:0:2}
         echo ${DATA:2:2}	
@@ -49,7 +49,23 @@ formato () {
 }
 
 inverteformato () {
-	
+	tirabarra $DATA 
+	DIAMES=${DATA:0:2}
+	MESDIA=${DATA:2:2} 
+	ANO=${DATA:4} 
+	echo "$MESDIA/$DIAMES/$ANO"
+
 }
-formato $DATA
-separando $DATA
+
+incluibarra () {
+	tirabarra $DATA
+	DIA=${DATA:0:2}
+        MES=${DATA:2:2}
+        ANO=${DATA:4}
+	echo "$DIA/$MES/$ANO" 
+
+}
+
+
+
+
